@@ -8,7 +8,7 @@ public class MainHW {
     // переменную n, чётным (true) либо нечётным (false).
 
     public boolean evenOddNumber(int input) {
-        return true;
+        return input % 2 == 1;
     }
 
     // HW 3.2. Нужно написать метод, который проверяет,
