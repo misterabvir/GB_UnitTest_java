@@ -22,7 +22,6 @@ public class UserRepository {
 
     public void logoutAllNotAdminUsers() {
         List<User> current = new ArrayList<>();
-
         for (User user : this.data) {
             if (user.logoutIfNotAdmin()) {
                 current.add(user);

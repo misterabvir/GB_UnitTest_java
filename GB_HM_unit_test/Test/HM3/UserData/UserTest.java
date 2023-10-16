@@ -134,6 +134,9 @@ public class UserTest {
         }
         repository.logoutAllNotAdminUsers();
 
+        for (User user : repository.data){
+            assertTrue(user.isAuthenticate);
+        }
     }
 
 }
