@@ -49,7 +49,7 @@ public class CarTests {
      */
     @ParameterizedTest
     @ValueSource(ints = {0})
-    void testMotorcycleSpeedInParkModeEqual0(int speed){
+    void testCarSpeedInParkModeEqual0(int speed){
         car.testDrive();
         car.park();
         assertThat(car.getSpeed()).isEqualTo(speed);
