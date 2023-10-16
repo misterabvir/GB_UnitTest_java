@@ -23,11 +23,7 @@ public class User {
     }
 
     public boolean logoutIfNotAdmin() {
-        this.isAuthenticate = isAdmin;
-        // it's more simply than
-        // if(!isAdmin) this.isAuthenticate = false;
-
-        return this.isAuthenticate;
+        return this.isAuthenticate = isAdmin && this.isAuthenticate;
     }
 
 }

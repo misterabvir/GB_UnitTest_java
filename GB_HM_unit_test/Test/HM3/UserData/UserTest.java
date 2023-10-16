@@ -89,4 +89,31 @@ public class UserTest {
         repository.addUser(user);
         assertFalse(repository.findByName(name));
     }
+
+    @Test
+    void checkUserLogoutForNotAdmin(){
+        String name = "name";
+        String password = "password";
+        boolean isAdmin = false;
+        User user = new User(name, password, isAdmin);
+        assertFalse(user.isAuthenticate);
+        user.authenticate(name, password);
+        assertTrue(user.isAuthenticate);
+        assertFalse(user.logoutIfNotAdmin());
+        assertFalse(user.isAuthenticate);
+    }
+
+    @Test
+    void checkUserNotLogoutForAdmin(){
+        String name = "name";
+        String password = "password";
+        boolean isAdmin = true;
+        User user = new User(name, password, isAdmin);
+        assertFalse(user.isAuthenticate);
+        user.authenticate(name, password);
+        assertTrue(user.isAuthenticate);
+        assertTrue(user.logoutIfNotAdmin());
+        assertTrue(user.isAuthenticate);
+    }
+
 }
