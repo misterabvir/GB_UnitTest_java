@@ -43,4 +43,11 @@ public class HomeWork3MainTests {
         boolean actual = service.numberInInterval(input);
         assertTrue(actual);
     }
+
+    @ParameterizedTest
+    @ValueSource(ints = {24, 150, 101, -4})
+    void checkValueNotInRangeNegativeResult(int input) {
+        boolean actual = service.numberInInterval(input);
+        assertFalse(actual);
+    }
 }
