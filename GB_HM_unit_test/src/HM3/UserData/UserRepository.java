@@ -12,11 +12,9 @@ public class UserRepository {
     }
 
     public boolean findByName(String username) {
-        for (User user : data) {
-            if (user.name.equals(username)) {
+        for (User user : data)
+            if (user.name.equals(username))
                 return true;
-            }
-        }
         return false;
     }
 
