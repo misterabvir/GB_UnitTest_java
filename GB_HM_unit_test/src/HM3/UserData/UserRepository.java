@@ -7,8 +7,8 @@ public class UserRepository {
     List<User> data = new ArrayList<>();
 
     public void addUser(User user) {
-       if(!user.isAuthenticate) return;
-       data.add(user);
+        if (!user.isAuthenticate) return;
+        data.add(user);
     }
 
     public boolean findByName(String username) {
@@ -18,5 +18,16 @@ public class UserRepository {
             }
         }
         return false;
+    }
+
+    public void logoutAllNotAdminUsers() {
+        List<User> current = new ArrayList<>();
+
+        for (User user : this.data) {
+            if (user.logoutIfNotAdmin()) {
+                current.add(user);
+            }
+        }
+        this.data = current;
     }
 }
