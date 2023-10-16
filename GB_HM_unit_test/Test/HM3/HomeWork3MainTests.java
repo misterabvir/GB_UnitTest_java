@@ -36,4 +36,11 @@ public class HomeWork3MainTests {
         boolean actual = service.evenOddNumber(input);
         assertFalse(actual);
     }
+
+    @ParameterizedTest
+    @ValueSource(ints = {25, 50, 100})
+    void checkValueInIntervalPositiveResult(int input) {
+        boolean actual = service.numberInInterval(input);
+        assertTrue(actual);
+    }
 }
