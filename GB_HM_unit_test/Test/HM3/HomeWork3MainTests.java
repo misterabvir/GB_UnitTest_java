@@ -10,21 +10,29 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class HomeWork3MainTests {
 
     MainHW service;
+
     @BeforeEach
-    void setUp(){
+    void setUp() {
         service = new MainHW();
     }
 
     @ParameterizedTest
-    @ValueSource(ints = { 1,3,5 })
-    void checkValueIsOdd(int input){
+    @ValueSource(ints = {1, 3, 5})
+    void checkValueIsOdd(int input) {
         boolean actual = service.evenOddNumber(input);
         assertTrue(actual);
     }
 
     @ParameterizedTest
-    @ValueSource(ints = { 4,2,6 })
-    void checkValueIsEvent(int input){
+    @ValueSource(ints = {4, 2, 6})
+    void checkValueIsEven(int input) {
+        boolean actual = service.evenOddNumber(input);
+        assertFalse(actual);
+    }
+
+    @ParameterizedTest
+    @ValueSource(ints = {0, 0, 0})
+    void checkZeroReturnFalse(int input) {
         boolean actual = service.evenOddNumber(input);
         assertFalse(actual);
     }
