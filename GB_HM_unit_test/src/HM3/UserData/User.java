@@ -17,10 +17,17 @@ public class User {
 
     //3.6.
     public boolean authenticate(String name, String password) {
-
-        isAuthenticate = Objects.equals(this.name, name) &&
+        return this.isAuthenticate =
+                Objects.equals(this.name, name) &&
                 Objects.equals(this.password, password);
-        return isAuthenticate;
+    }
+
+    public boolean logoutIfNotAdmin() {
+        this.isAuthenticate = isAdmin;
+        // it's more simply than
+        // if(!isAdmin) this.isAuthenticate = false;
+
+        return this.isAuthenticate;
     }
 
 }
